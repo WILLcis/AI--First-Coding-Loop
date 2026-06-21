@@ -32,6 +32,8 @@ Do not rely on chat memory for task status.
 
 ## Context Economy
 
+Canonical skill file: `skills/context-economy/SKILL.md`.
+
 - Read the smallest useful slice of the repository.
 - Do not reload full instruction files, README files, run histories, or skill files unless they are directly needed.
 - Write discovery once, then read the cached summary plus the current diff.
@@ -39,6 +41,8 @@ Do not rely on chat memory for task status.
 - Use role-specific context. An explorer should not load implementation-only material; a verifier should not load brainstorming notes.
 
 ## Slice Policy
+
+Canonical skill file: `skills/slice-policy/SKILL.md`.
 
 - A slice is the smallest verifiable result, not the smallest possible code edit.
 - Do not stop after read-only discovery, planning, a tiny helper, or a phase transition unless a real blocker exists.

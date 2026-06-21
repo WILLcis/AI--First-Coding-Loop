@@ -12,8 +12,8 @@ Loop state:
 
 Rules:
 
-1. Use `skills/context-economy.md`.
-2. Use `skills/slice-policy.md`.
+1. Use `skills/context-economy/SKILL.md`.
+2. Use `skills/slice-policy/SKILL.md`.
 3. Continue working unless a real stop condition is met.
 4. Read only the smallest useful context.
 5. Use cached discovery if present.

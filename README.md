@@ -99,6 +99,10 @@ universal-ai-first-harness/
     verifier-dependency.toml
   skills/
     README.md
+    context-economy/
+      SKILL.md
+    slice-policy/
+      SKILL.md
     context-economy.md
     slice-policy.md
   state/
@@ -123,6 +127,7 @@ universal-ai-first-harness/
 - Iteration limits
 - Role/model tiers
 - Slice policy to prevent token-wasting micro-slices
+- Client-agnostic `SKILL.md` directories with legacy markdown pointers
 - Model-assisted independent checker
 - External client runner for implementer/checker prompts
 - Compact run prompts

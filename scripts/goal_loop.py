@@ -79,8 +79,8 @@ Remaining budget:
 - tokens: {remaining_tokens}
 
 Required behavior:
-1. Use the context-economy skill.
-2. Use the slice-policy skill.
+1. Use the context-economy skill at skills/context-economy/SKILL.md.
+2. Use the slice-policy skill at skills/slice-policy/SKILL.md.
 3. Read only the smallest useful context.
 4. Continue through routine phases without asking for approval.
 5. Work in the smallest verifiable result, not the smallest code edit.
