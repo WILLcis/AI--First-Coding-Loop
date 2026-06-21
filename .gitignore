@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+state/tasks/*.tmp.*
+state/_local/*
+!state/_local/.gitkeep
+

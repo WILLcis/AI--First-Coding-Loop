@@ -1,0 +1,13 @@
+name = "explorer"
+description = "Read-only repository discovery. Finds relevant files, commands, patterns, and risks. Does not edit."
+provider_env = "LLM_PROVIDER"
+model_env = "LLM_MODEL_EXPLORER"
+reasoning = "low"
+tools = ["Read", "Grep", "Glob"]
+write_allowed = false
+max_iterations = 8
+
+[budget]
+max_input_tokens = 20000
+max_output_tokens = 2000
+

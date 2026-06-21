@@ -1,0 +1,12 @@
+name = "verifier-quality"
+description = "Reviews correctness, regressions, tests, performance, and maintainability. Does not comment on style preferences."
+provider_env = "LLM_PROVIDER"
+model_env = "LLM_MODEL_VERIFIER_QUALITY"
+reasoning = "medium"
+tools = ["Read", "Grep", "Glob"]
+write_allowed = false
+
+[budget]
+max_input_tokens = 40000
+max_output_tokens = 4000
+

@@ -1,0 +1,14 @@
+name = "checker"
+description = "Independent done/stuck judgment. Checks stop condition and verification evidence. Does not edit."
+provider_env = "LLM_PROVIDER"
+model_env = "LLM_MODEL_CHECKER"
+reasoning = "medium"
+tools = ["Read", "Bash"]
+write_allowed = false
+verification_only = true
+max_iterations = 8
+
+[budget]
+max_input_tokens = 20000
+max_output_tokens = 1000
+

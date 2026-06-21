@@ -1,0 +1,14 @@
+name = "implementer"
+description = "Makes scoped code changes and tests according to the task and cached discovery. Does not judge its own completion."
+provider_env = "LLM_PROVIDER"
+model_env = "LLM_MODEL_IMPLEMENTER"
+reasoning = "medium"
+tools = ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+write_allowed = true
+max_iterations = 25
+required_skills = ["context-economy"]
+
+[budget]
+max_input_tokens = 80000
+max_output_tokens = 8000
+

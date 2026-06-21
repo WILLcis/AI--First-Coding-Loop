@@ -1,0 +1,12 @@
+name = "verifier-dependency"
+description = "Reviews dependency, supply-chain, license, version, and package-risk issues. Cheap model is usually enough."
+provider_env = "LLM_PROVIDER"
+model_env = "LLM_MODEL_VERIFIER_DEPENDENCY"
+reasoning = "low"
+tools = ["Read", "Grep"]
+write_allowed = false
+
+[budget]
+max_input_tokens = 20000
+max_output_tokens = 2000
+

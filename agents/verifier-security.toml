@@ -1,0 +1,12 @@
+name = "verifier-security"
+description = "Reviews auth boundaries, injection, secrets, unsafe defaults, permissions, and privacy risks. Use strongest available model."
+provider_env = "LLM_PROVIDER"
+model_env = "LLM_MODEL_VERIFIER_SECURITY"
+reasoning = "high"
+tools = ["Read", "Grep", "Glob"]
+write_allowed = false
+
+[budget]
+max_input_tokens = 40000
+max_output_tokens = 4000
+

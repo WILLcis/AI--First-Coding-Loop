@@ -1,0 +1,13 @@
+{
+  "task_id": "example-smoke",
+  "status": "running",
+  "iterations": [],
+  "tokens_used": 0,
+  "created_at": "2026-06-21T03:37:38.654256+00:00",
+  "task_file": "state/tasks/example-smoke.md",
+  "task_excerpt": "# Example Smoke Task\n\nStatus: planned\nOwner: AI agent\nCreated: 2026-06-21\n\n## Goal\n\nVerify that the universal AI-first harness can initialize a resumable task loop.\n\n## Context\n\nThis is a non-code smoke task for validating the harness itself.\n\n## Acceptance Criteria\n\n- [ ] `scripts/goal_loop.py start` creates `state/tasks/example-smoke.json`.\n- [ ] The emitted prompt includes remaining iteration and token budget.\n- [ ] `scripts/token_report.py report` runs without error.\n\n## Stop Condition\n\nThe task is done when the loop state exists and token reporting runs successfully.\n\n## Scope\n\nAllowed:\n\n- Universal harness state files\n\nNot allowed:\n\n- Repository business code\n- Remote services\n\n## Verification\n\n- [ ] `python3 scripts/goal_loop.py status --task-id example-smoke`\n- [ ] `python3 scripts/token_report.py report --days 1`\n\n## Budgets\n\n- Max iterations: 3\n- Max tokens: 10000\n- Max initial discovery files: 3\n\n## Open Questions\n\nNone.\n\n## Run Log\n\n- 2026-06-21: Created smoke task.\n\n",
+  "stop_condition": "loop state exists and token reporting runs successfully",
+  "max_iterations": 3,
+  "max_tokens": 10000,
+  "updated_at": "2026-06-21T03:37:38.654736+00:00"
+}
