@@ -37,10 +37,10 @@ Not allowed:
 - Max iterations:
 - Max tokens:
 - Max initial discovery files:
+- Slice policy: smallest verifiable result, not smallest code edit
 
 ## Open Questions
 
 ## Run Log
 
 - YYYY-MM-DD: Created.
-

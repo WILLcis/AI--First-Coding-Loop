@@ -10,7 +10,7 @@ Models forget. Repositories remember.
 |---|---|---|
 | `tasks/<task-id>.md` | Markdown | Human-readable task spec |
 | `tasks/<task-id>.json` | JSON | Loop state, status, iteration history, budgets |
-| `token-usage.jsonl` | JSON Lines | Append-only token usage ledger |
+| `token-usage.jsonl` | JSON Lines | Append-only token usage ledger, written by `token_report.py add` and `model_adapter.py` |
 | `known-flakes.txt` | text | Known flaky tests, checks, or error fingerprints |
 
 ## Rules
@@ -20,4 +20,3 @@ Models forget. Repositories remember.
 - Keep task state compact. Store facts and decisions, not long narrative transcripts.
 - Cache discovery summaries and reuse them instead of rereading the whole repository.
 - Commit state that is useful for collaboration and continuity; keep local experiments in `state/_local/`.
-

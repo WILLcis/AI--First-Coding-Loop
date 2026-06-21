@@ -114,6 +114,19 @@ Rules:
 - Every substantial task should define practical budgets: max iterations, max initial discovery files, and max token budget when token usage is observable.
 - If the task reaches its iteration or token budget, stop, record the current state, and ask whether to continue, narrow scope, or change strategy.
 
+### Slice Policy
+
+The agent must treat a slice as the smallest verifiable result, not the smallest possible code edit.
+
+Rules:
+
+- A slice should produce one coherent behavior or one coherent risk-reduction result.
+- A slice should include the minimal implementation, relevant verification, and compact records.
+- Do not create separate slices for read-only discovery, planning, one-line edits, tiny helpers, or phase transitions.
+- Continue inside the current slice when the next step is mechanically implied and still in scope.
+- Split only when behavior, risk, contract boundary, or reviewability requires it.
+- If a slice cannot be independently verified, fold it into the nearest meaningful slice.
+
 Default task status values:
 
 ```text

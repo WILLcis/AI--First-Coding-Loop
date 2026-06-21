@@ -14,4 +14,4 @@ Recommended pattern:
 ## Included Skills
 
 - `context-economy.md`: token budget, discovery cache, file-reading limits, and context hygiene.
-
+- `slice-policy.md`: defines a slice as the smallest verifiable result and prevents token-wasting micro-slices.

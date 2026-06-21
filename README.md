@@ -32,7 +32,27 @@ python3 scripts/goal_loop.py start \
 
 5. Give the emitted compact prompt to your active AI client.
 6. If you already have an active coding session, use [docs/ACTIVE_SESSION_ADOPTION.md](docs/ACTIVE_SESSION_ADOPTION.md) to attach it without restarting.
-7. After each AI/client run, append a token record if your client exposes usage and report usage:
+7. After each AI/client run, record the iteration:
+
+```bash
+python3 scripts/goal_loop.py record \
+  --task-id <task-id> \
+  --summary "<what changed and how it was verified>" \
+  --verdict continue \
+  --tokens <observed-token-count-if-known>
+```
+
+8. Ask the independent checker to judge whether the stop condition is met:
+
+```bash
+python3 scripts/goal_loop.py check \
+  --task-id <task-id> \
+  --evidence "<verification evidence or failure summary>"
+```
+
+By default this uses `LLM_PROVIDER=mock`. See [docs/MODEL_ADAPTERS.md](docs/MODEL_ADAPTERS.md) to connect OpenAI, Anthropic, or an OpenAI-compatible provider.
+
+9. Append explicit token records if your client exposes usage outside the model adapter, then report usage:
 
 ```bash
 python3 scripts/token_report.py add \
@@ -50,6 +70,7 @@ python3 scripts/token_report.py report --days 1
 
 - The repository state is the memory. The chat is not the memory.
 - Load only the files needed for the current role and phase.
+- A slice is the smallest verifiable result, not the smallest code edit.
 - Use small/cheap roles for exploration and dependency checks; reserve strong models for implementation, security, architecture, and final review.
 - A progress update is not an approval gate.
 - Stop only for human judgment, missing authority, unsafe ambiguity, irreversible action, budget exhaustion, or a failed checker verdict.
@@ -69,6 +90,7 @@ universal-ai-first-harness/
   skills/
     README.md
     context-economy.md
+    slice-policy.md
   state/
     README.md
     token-usage.jsonl
@@ -76,6 +98,7 @@ universal-ai-first-harness/
     tasks/
   scripts/
     goal_loop.py
+    model_adapter.py
     token_report.py
   prompts/
     run-task.md
@@ -88,6 +111,8 @@ universal-ai-first-harness/
 - Token budgets and reports
 - Iteration limits
 - Role/model tiers
+- Slice policy to prevent token-wasting micro-slices
+- Model-assisted independent checker
 - Compact run prompts
 - External task state
 - Discovery caching

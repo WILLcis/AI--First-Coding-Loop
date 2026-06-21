@@ -61,6 +61,8 @@ def cmd_report(args: argparse.Namespace) -> int:
     by_loop = collections.Counter()
     by_role = collections.Counter()
     by_model = collections.Counter()
+    by_provider = collections.Counter()
+    mocked_calls = 0
     total_in = 0
     total_out = 0
 
@@ -73,16 +75,21 @@ def cmd_report(args: argparse.Namespace) -> int:
         by_loop[record.get("loop", "?")] += tokens
         by_role[record.get("role", "?")] += tokens
         by_model[record.get("model", "?")] += tokens
+        by_provider[record.get("provider", record.get("client", "?"))] += tokens
+        if record.get("mocked"):
+            mocked_calls += 1
 
     payload = {
         "window_days": args.days,
         "records": len(records),
+        "mocked_calls": mocked_calls,
         "input_tokens": total_in,
         "output_tokens": total_out,
         "total_tokens": total_in + total_out,
         "by_loop": dict(by_loop.most_common()),
         "by_role": dict(by_role.most_common()),
         "by_model": dict(by_model.most_common()),
+        "by_provider": dict(by_provider.most_common()),
     }
 
     monthly_budget = int(args.monthly_budget or os.getenv("MONTHLY_TOKEN_BUDGET", "0") or 0)
@@ -101,6 +108,7 @@ def cmd_report(args: argparse.Namespace) -> int:
     print(f"# Token Report · last {args.days} day(s)")
     print()
     print(f"- records: {payload['records']}")
+    print(f"- mocked calls: {payload['mocked_calls']}")
     print(f"- input/output: {total_in:,} / {total_out:,}")
     print(f"- total: {total_in + total_out:,}")
     if "monthly_budget" in payload:
@@ -119,6 +127,10 @@ def cmd_report(args: argparse.Namespace) -> int:
     print()
     print("## By Model")
     for key, value in by_model.most_common():
+        print(f"- {key}: {value:,}")
+    print()
+    print("## By Provider")
+    for key, value in by_provider.most_common():
         print(f"- {key}: {value:,}")
     return 0
 
@@ -152,4 +164,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

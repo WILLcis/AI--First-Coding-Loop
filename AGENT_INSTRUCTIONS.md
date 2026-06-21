@@ -38,6 +38,14 @@ Do not rely on chat memory for task status.
 - Prefer file lists and line-targeted reads over dumping whole directories.
 - Use role-specific context. An explorer should not load implementation-only material; a verifier should not load brainstorming notes.
 
+## Slice Policy
+
+- A slice is the smallest verifiable result, not the smallest possible code edit.
+- Do not stop after read-only discovery, planning, a tiny helper, or a phase transition unless a real blocker exists.
+- A slice should usually include a coherent behavior, the minimal implementation, verification evidence, and a compact record.
+- Fold tiny mechanical edits into the nearest meaningful slice.
+- Split only when behavior, risk, contract boundary, or reviewability requires it.
+
 ## Safety
 
 - Do not push directly to protected branches unless explicitly asked.
@@ -82,4 +90,3 @@ A task is complete only when:
 - task state is updated under `state/`
 - token/iteration usage is recorded when available
 - final handoff explains what changed, how it was verified, and what remains
-

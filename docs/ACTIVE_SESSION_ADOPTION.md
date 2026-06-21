@@ -35,6 +35,12 @@ Steps:
    - Progress updates are not approval gates.
    - Continue by default. Stop only for human judgment, missing authority, unsafe ambiguity, irreversible action, budget exhaustion, or out-of-scope repair.
 
+   Also ensure a slice policy exists. It must say:
+   - A slice is the smallest verifiable result, not the smallest code edit.
+   - Do not create separate slices for read-only discovery, planning, one-line edits, or phase transitions.
+   - A good slice includes behavior, implementation, verification evidence, and compact records.
+   - Fold tiny mechanical steps into the current slice.
+
 4. Generate a task id:
    - Format: YYYYMMDD-short-topic.
    - If the session already has a branch, issue, ticket, or task id, reuse it.
@@ -72,10 +78,10 @@ Steps:
 Execution rules:
 
 - Do not stop between PLAN / BUILD / VERIFY / RECORD just to ask for approval.
+- Do not create micro-slices. Work in the smallest verifiable result.
 - Stop only for human judgment, missing authority, unsafe ambiguity, irreversible action, out-of-scope change, or budget exhaustion.
 - A progress update is not an approval gate.
 - After meaningful progress, update task state and run records.
 
 Start adoption now, then continue until the acceptance criteria are met or the task is genuinely blocked.
 ```
-
