@@ -83,6 +83,7 @@ python3 scripts/token_report.py report --days 1
 - A slice is the smallest verifiable result, not the smallest code edit.
 - Use small/cheap roles for exploration and dependency checks; reserve strong models for implementation, security, architecture, and final review.
 - A progress update is not an approval gate.
+- Passing CI is not an approval gate; merge or enable auto-merge when all merge gates are satisfied.
 - Stop only for human judgment, missing authority, unsafe ambiguity, irreversible action, budget exhaustion, or a failed checker verdict.
 
 ## Directory Layout
@@ -90,6 +91,11 @@ python3 scripts/token_report.py report --days 1
 ```text
 universal-ai-first-harness/
   AGENT_INSTRUCTIONS.md
+  docs/
+    AUTO_MERGE_POLICY.md
+    ACTIVE_SESSION_ADOPTION.md
+    CLIENT_RUNNER.md
+    MODEL_ADAPTERS.md
   agents/
     explorer.toml
     implementer.toml
@@ -129,6 +135,7 @@ universal-ai-first-harness/
 - Slice policy to prevent token-wasting micro-slices
 - Client-agnostic `SKILL.md` directories with legacy markdown pointers
 - Model-assisted independent checker
+- Auto-merge policy for CI-green, review-clean pull requests
 - External client runner for implementer/checker prompts
 - Compact run prompts
 - External task state

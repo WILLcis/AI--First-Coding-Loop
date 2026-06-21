@@ -19,7 +19,8 @@ Rules:
 5. Use cached discovery if present.
 6. Update task state after each meaningful slice, not after every tiny step.
 7. Do not treat progress updates as approval gates.
-8. Stop only for human judgment, missing authority, unsafe ambiguity, irreversible action, failed checker verdict, or budget exhaustion.
+8. If CI/status checks pass and merge gates are satisfied, merge or enable platform auto-merge without asking, then record and continue.
+9. Stop only for human judgment, missing authority, unsafe ambiguity, unresolved requested changes, irreversible or production-impacting action, failed checker verdict, or budget exhaustion.
 
 Optional automation:
 

@@ -84,8 +84,9 @@ Required behavior:
 3. Read only the smallest useful context.
 4. Continue through routine phases without asking for approval.
 5. Work in the smallest verifiable result, not the smallest code edit.
-6. Stop only for human judgment, unsafe ambiguity, missing authority, irreversible action, failed verification outside approved scope, or budget exhaustion.
-7. After the run, update state/tasks/{task_id}.json and record a concise iteration summary.
+6. If CI/status checks pass and merge gates are satisfied, merge or enable platform auto-merge without asking, then record and continue.
+7. Stop only for human judgment, unsafe ambiguity, missing authority, unresolved requested changes, irreversible or production-impacting action, failed verification outside approved scope, or budget exhaustion.
+8. After the run, update state/tasks/{task_id}.json and record a concise iteration summary.
 """
 
 

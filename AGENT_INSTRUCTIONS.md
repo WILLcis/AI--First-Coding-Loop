@@ -19,6 +19,23 @@ Stop only when:
 
 Progress updates are useful, but they are not approval gates.
 
+## Merge Continuation
+
+CI passing is not a human approval gate. When a pull request is in scope and all merge gates are satisfied, merge or enable platform auto-merge without asking, then record the result and continue.
+
+Required merge gates:
+
+- acceptance criteria and checker/done evidence are satisfied
+- required CI/status checks are passing
+- branch protection and required reviews are satisfied
+- no unresolved requested changes or actionable review threads remain
+- the branch is up to date, in merge queue, or otherwise mergeable under repository policy
+- the merge affects only the approved task scope
+
+Stop before merging only when human/product judgment, missing permission, unsafe ambiguity, unresolved requested changes, unrelated user-owned changes, or production/irreversible impact requires it.
+
+For details, read `docs/AUTO_MERGE_POLICY.md`.
+
 ## State
 
 Use `state/` as durable memory:
