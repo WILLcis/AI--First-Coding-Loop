@@ -81,6 +81,15 @@ Use the strongest available role only for:
 - irreversible/high-risk decisions
 - final architecture judgment
 
+## Client Runner
+
+If the repository includes `scripts/client_runner.py`, it may be used to hand role prompts to an external AI client.
+
+- Default mode must be dry-run.
+- External command execution requires explicit configuration.
+- Client output is not proof of completion.
+- Completion still requires verification evidence and checker judgment.
+
 ## Definition Of Done
 
 A task is complete only when:

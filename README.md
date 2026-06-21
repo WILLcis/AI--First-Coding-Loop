@@ -31,8 +31,18 @@ python3 scripts/goal_loop.py start \
 ```
 
 5. Give the emitted compact prompt to your active AI client.
-6. If you already have an active coding session, use [docs/ACTIVE_SESSION_ADOPTION.md](docs/ACTIVE_SESSION_ADOPTION.md) to attach it without restarting.
-7. After each AI/client run, record the iteration:
+6. Or ask the harness to hand the prompt to a configured client runner:
+
+```bash
+python3 scripts/client_runner.py run \
+  --task-id <task-id> \
+  --role implementer
+```
+
+By default this is a dry-run that writes the prompt to `state/_local/prompts/`. See [docs/CLIENT_RUNNER.md](docs/CLIENT_RUNNER.md) to connect a real client command.
+
+7. If you already have an active coding session, use [docs/ACTIVE_SESSION_ADOPTION.md](docs/ACTIVE_SESSION_ADOPTION.md) to attach it without restarting.
+8. After each AI/client run, record the iteration:
 
 ```bash
 python3 scripts/goal_loop.py record \
@@ -42,7 +52,7 @@ python3 scripts/goal_loop.py record \
   --tokens <observed-token-count-if-known>
 ```
 
-8. Ask the independent checker to judge whether the stop condition is met:
+9. Ask the independent checker to judge whether the stop condition is met:
 
 ```bash
 python3 scripts/goal_loop.py check \
@@ -52,7 +62,7 @@ python3 scripts/goal_loop.py check \
 
 By default this uses `LLM_PROVIDER=mock`. See [docs/MODEL_ADAPTERS.md](docs/MODEL_ADAPTERS.md) to connect OpenAI, Anthropic, or an OpenAI-compatible provider.
 
-9. Append explicit token records if your client exposes usage outside the model adapter, then report usage:
+10. Append explicit token records if your client exposes usage outside the model adapter, then report usage:
 
 ```bash
 python3 scripts/token_report.py add \
@@ -97,6 +107,7 @@ universal-ai-first-harness/
     known-flakes.txt
     tasks/
   scripts/
+    client_runner.py
     goal_loop.py
     model_adapter.py
     token_report.py
@@ -113,6 +124,7 @@ universal-ai-first-harness/
 - Role/model tiers
 - Slice policy to prevent token-wasting micro-slices
 - Model-assisted independent checker
+- External client runner for implementer/checker prompts
 - Compact run prompts
 - External task state
 - Discovery caching
